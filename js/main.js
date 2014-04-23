@@ -40,16 +40,16 @@ function init() {
 
 function update(){
 
+    // mouseY = (typeof mouseY == 'undefined' ? 0 : mouseY);
     mouseX = (typeof mouseX == 'undefined' ? 0 : mouseX);
-    mouseY = (typeof mouseY == 'undefined' ? 0 : mouseY);
 
     sphere.rotation.y += (0.005+0.00015*(mouseX - camera.position.x));
-    sphere.rotation.x += (0.005+0.00015*( - mouseY - camera.position.y ));
+    // sphere.rotation.x += (0.005+0.00015*( - mouseY - camera.position.y ));
 
     renderer.render( scene, camera );
 }
 
 function onMouseMove( event ) {
+    // mouseY = event.clientY - halfHeight;
     mouseX = event.clientX - halfWidth;
-    mouseY = event.clientY - halfHeight;
 };
