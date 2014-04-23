@@ -19,13 +19,18 @@ function init() {
     scene = new THREE.Scene();
 
     geometry = new THREE.TorusKnotGeometry( 200, 100, 100, 16 );
-    material = new THREE.MeshBasicMaterial( { color: 0xaaaaaa, wireframe: true } );
+    material = new THREE.MeshBasicMaterial( { color: 0xeeeeee, wireframe: true } );
     mesh = new THREE.Mesh( geometry, material );
     mesh.position.y = 100;
 
     scene.add( mesh );
 
-    renderer = new THREE.CanvasRenderer();
+    try {
+        renderer = new THREE.WebGLRenderer();
+    }
+    catch (e) {
+        renderer = new THREE.CanvasRenderer();
+    }
     renderer.setClearColor( 0xffffff, 1);
     renderer.setSize( containerWidth, containerHeight );
 
@@ -35,7 +40,7 @@ function init() {
     document.addEventListener( 'mousemove', onMouseMove, false);
 
     // at requestAnimationFrame) 
-    setInterval(update,1000/30); 
+    setInterval(update); 
 }
 
 function update(){

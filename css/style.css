@@ -11,12 +11,13 @@ body {
 
 h3#name {
   margin-top: 0;
-  color: #666;
+  color: #ccc;
   display: inline;
 }
 
+
 .links {
-  list-style-type: none;
+  list-style-type: circle;
   margin: 0;
   padding: 0;
   font-size: 0.9em;
@@ -30,10 +31,10 @@ h3#name {
 
 .links a {
   text-decoration: none;
-  color: #666;
+  color: #ccc;
 }
 
 .links a:hover {
-  border-bottom: 1px #444 dotted;
-  color: #444;
+  border-bottom: 1px #666 dotted;
+  color: #ccc;
 }
