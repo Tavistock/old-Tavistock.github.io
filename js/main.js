@@ -1,5 +1,5 @@
 var camera, scene, renderer;
-var sphere, geometry, material;
+var mesh, geometry, material;
 
 var mouseX, mouseY;
 var halfWidth = window.innerWidth/2, halfHeight = window.innerHeight/2;
@@ -10,7 +10,7 @@ function init() {
 
     var container = document.getElementById('geo');
     var containerWidth = 200;
-    var containerHeight = 100;
+    var containerHeight = 140;
 
     camera = new THREE.PerspectiveCamera( 70, containerWidth/containerHeight, 1, 1000 );
     camera.position.y = 150;
@@ -18,12 +18,12 @@ function init() {
 
     scene = new THREE.Scene();
 
-    geometry = new THREE.SphereGeometry( 400,32,32 );
-    material = new THREE.MeshBasicMaterial( { color: 0xaaaabb, wireframe: true } );
-    sphere = new THREE.Mesh( geometry, material );
-    sphere.position.y = 300;
+    geometry = new THREE.TorusKnotGeometry( 200, 100, 100, 16 );
+    material = new THREE.MeshBasicMaterial( { color: 0xaaaaaa, wireframe: true } );
+    mesh = new THREE.Mesh( geometry, material );
+    mesh.position.y = 100;
 
-    scene.add( sphere );
+    scene.add( mesh );
 
     renderer = new THREE.CanvasRenderer();
     renderer.setClearColor( 0xffffff, 1);
@@ -40,16 +40,13 @@ function init() {
 
 function update(){
 
-    // mouseY = (typeof mouseY == 'undefined' ? 0 : mouseY);
     mouseX = (typeof mouseX == 'undefined' ? 0 : mouseX);
 
-    sphere.rotation.y += (0.005+0.00015*(mouseX - camera.position.x));
-    // sphere.rotation.x += (0.005+0.00015*( - mouseY - camera.position.y ));
+    mesh.rotation.y += (0.005+0.00015*(mouseX - camera.position.x));
 
     renderer.render( scene, camera );
 }
 
 function onMouseMove( event ) {
-    // mouseY = event.clientY - halfHeight;
     mouseX = event.clientX - halfWidth;
 };
