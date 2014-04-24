@@ -11,7 +11,7 @@ body {
 
 h3#name {
   margin-top: 0;
-  color: #ccc;
+  color: #aaa;
   display: inline;
 }
 
@@ -31,10 +31,10 @@ h3#name {
 
 .links a {
   text-decoration: none;
-  color: #ccc;
+  color: #aaa;
 }
 
 .links a:hover {
   border-bottom: 1px #666 dotted;
-  color: #ccc;
+  color: #888;
 }

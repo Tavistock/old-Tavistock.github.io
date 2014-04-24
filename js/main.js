@@ -19,7 +19,7 @@ function init() {
     scene = new THREE.Scene();
 
     geometry = new THREE.TorusKnotGeometry( 200, 100, 100, 16 );
-    material = new THREE.MeshBasicMaterial( { color: 0xeeeeee, wireframe: true } );
+    material = new THREE.MeshBasicMaterial( { color: 0xd0d0d0, wireframe: true } );
     mesh = new THREE.Mesh( geometry, material );
     mesh.position.y = 100;
 
